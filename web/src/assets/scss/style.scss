@@ -1,0 +1,212 @@
+@import './_variables.scss';
+//reset
+*{
+    //以边框为准。例子：加了padding不会向外扩张来实现内边距，而是会将内容向里压缩。
+    box-sizing: border-box;
+    //轮廓是绘制于元素周围的一条线，位于边框边缘的外围
+    outline: none;
+}
+html{
+    font-size: 13px;
+}
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height:1.2em;
+    background:#f1f1f1;
+    //字体平滑
+    -webkit-font-smoothing:antialiased
+}
+a{
+    color: #999999;
+}
+P{
+    line-height: 1.5em
+}
+//字体color
+@each $colorKey,$colors in $colors{
+    .text-#{$colorKey}{
+        color: $colors
+    }
+}
+//背景color
+@each $colorKey,$colors in $colors{
+    .bg-#{$colorKey}{
+        background-color: $colors
+    }
+}
+
+//text align
+@each $var in (left,right,center){
+    .text-#{$var}{
+        //强制应用
+        text-align: $var!important
+    }
+}
+//text-ellipsis省略
+.text-ellipsis{
+    display: inline-block;
+    //未显示内容隐藏
+    overflow: hidden;
+    //未显示文本以省略号表示
+    text-overflow: ellipsis;
+    //不换行
+    white-space: nowrap;
+}
+//字体大小
+@each $sizeKey,$size in $font-sizes{
+  .fs-#{$sizeKey}{
+     font-size: $size*$base-font-size
+  }
+}
+//width,height
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+//flex
+.d-flex{
+    display: flex;
+};
+//设置主轴为垂直方向，起点在上沿
+.flex-column{
+    flex-direction: column
+}
+//主轴对齐
+@each $jcKey,$jc in $jc-flex{
+    .jc-#{$jcKey}{
+        justify-content:$jc
+    }
+};
+//交叉轴对齐
+@each $jcKey,$jc in $jc-ai{
+    .ai-#{$jcKey}{
+        align-items:$jc
+    }
+}
+.flex-1{
+    flex:1
+}
+.flex-grow-1{
+    flex-grow: 1
+}
+.flex-wrap{
+    flex-wrap: wrap
+}
+//border
+@each $var in (top,right,bottom,left){
+    .border-#{$var}{
+        border-#{$var}:1px solid map-get($colors, "light-1" )
+    }
+}
+
+@each $typeKey,$type in $spacing-types{
+    //.m-1
+    @each $sizeKey,$size in $spacing-sizes{
+        //mt-1{}
+        .#{$typeKey}-#{$sizeKey}{
+            #{$type}:$size*$spacing-base-size
+        }
+    }
+    //mx-0,my-0 沿轴方向
+    @each $sizeKey,$size in $spacing-sizes{
+        //mt-1{}
+        .#{$typeKey}x-#{$sizeKey}{
+            #{$type}-left:$size*$spacing-base-size;
+            #{$type}-right:$size*$spacing-base-size
+        }
+        .#{$typeKey}y-#{$sizeKey}{
+            #{$type}-top:$size*$spacing-base-size;
+            #{$type}-bottom:$size*$spacing-base-size
+        }
+    }
+    //.mt-1
+    @each $directionKey,$direction in $spacing-directions{
+        @each $sizeKey,$size in $spacing-sizes{
+            //mt-1{}
+            .#{$typeKey}#{$directionKey}-#{$sizeKey}{
+                #{$type}-#{$direction}:$size*$spacing-base-size
+            }
+        }
+    }
+}
+//button
+.btn{
+    border: none;
+    border-radius: 0.1538rem;
+    font-size:map-get($font-sizes,'sm')*$base-font-size;
+    padding: 0.3rem 0.6rem
+}
+//nav
+.nav{
+    display: flex;
+    .nav-item{
+        //不加透明边框可能会导致对不齐
+        border-bottom: 3px solid transparent;
+        padding-bottom: 0.1rem;
+        //高亮,&表示同一级的类
+        &.active{
+            color: map-get($colors,"primary" );
+            border-bottom: 3px solid map-get($colors,"primary");
+        }
+    }
+    &.nav-inverse{
+      .nav-item{
+        color: map-get($colors,"white");
+        &.active{
+            border-bottom: 3px solid map-get($colors,"white");
+          }
+      }
+    }
+}
+//sprite精灵图片
+.sprite{
+    background: url(../../images/tuhaokuai_1581599077.png) no-repeat 0 0;
+    background-size: 28.8462rem;
+    //否则无法设置i标签宽高
+    display: inline-block;
+    &.sprite-order{
+      width: 1.6923rem;//22px
+      height: 1.5385rem;
+      background-position: 58.757% 40.237%;
+    }
+    &.sprite-gameMessage{
+        width: 1.6923rem;
+        height: 1.4615rem;
+        background-position: 92.635% 6.395%;
+      }
+      &.sprite-lolTop-1{
+        width: 1.6154rem;
+        height: 1.6923rem;
+        background-position: 51.977% 40.237%;
+      }
+      &.sprite-lolTop-2{
+        width: 1.6923rem;
+        height: 1.2308rem;
+        background-position: 75.637% 69.143%;
+      }
+      &.sprite-strategy{
+        width: 1.6923rem;
+        height: 1.4615rem;
+        background-position: 100% 6.395%;
+      }
+      &.sprite-universe{
+        width: 1.6923rem;
+        height: 1.5385rem;
+        background-position: 73.938% 25.146%;
+      }
+      &.sprite-weixin{
+        width: 1.6923rem;
+        height: 1.6923rem;
+        background-position: 52.125% 25.444%;
+      }
+}
+//card
+.card{
+    .card-header{
+        border-bottom: 1px solid map-get($colors, "light-1" )
+    }
+    border-bottom: 1px solid map-get($colors, "light-1" );
+}

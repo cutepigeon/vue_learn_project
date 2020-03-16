@@ -1,0 +1,67 @@
+//变量
+//colors
+$colors:(
+    "primary":#0da0b4,
+    "primary-1":#db9e3f,
+    //和css本身有冲突时要加引号
+    "white":#fff,
+    "light":#f9f9f9,
+    //边框色
+    "light-1":#d4d9de,
+    "black":#000,
+    "dark":#222,
+    "dark-1":#343400,
+    "grey":#999,
+    "grey-1":#666,
+    "item-type":#bb9a6c,
+    "danger":rgb(204, 58, 58)
+);
+//font-size
+$base-font-size:1rem;//跟据13px转化成rem，默认值需要在设置中配置
+$font-sizes:(
+    xxs:0.6154,
+    xs:0.7692,//10px
+    sm:0.9231,//12px
+    md:1,//13px
+    lg:1.0769,//14px
+    xl:1.3846////18px
+);
+//主轴对齐
+$jc-flex:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    between:space-between,
+    around:space-around
+);
+//交叉轴对齐
+$jc-ai:(
+    start:flex-start,
+    end:flex-end,
+    center:center,
+    //使得交叉轴方向拉伸
+    stretch:stretch
+);
+//spacing
+//例如0-5level 递增
+//.mt-1 margin-top 1 级
+$spacing-types:(
+    m:margin,
+    p:padding,
+);
+$spacing-directions:(
+    t:top,
+    r:right,
+    b:bottom,
+    l:left
+);
+$spacing-base-size:1rem;
+//使用这个乘以基础大小
+$spacing-sizes:(
+    0:0,
+    1:0.25,
+    2:0.5,
+    3:1,
+    4:1.5,
+    5:3,
+);
