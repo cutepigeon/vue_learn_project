@@ -8,8 +8,11 @@ import ItemEdit from '../views/ItemEdit.vue'
 import ItemList from '../views/ItemList.vue'
 import HeroEdit from '../views/HeroEdit.vue'
 import HeroList from '../views/HeroList.vue'
+import HeroList2 from '../views/HeroList.1.vue'
 import ArticleEdit from '../views/ArticleEdit.vue'
 import ArticleList from '../views/ArticleList.vue'
+import MyArticleEdit from '../views/MyArticleEdit.vue'
+import MyArticleList from '../views/MyArticleList.vue'
 import AdsEdit from '../views/AdsEdit.vue'
 import AdsList from '../views/AdsList.vue'
 import AdminUserEdit from '../views/AdminUserEdit.vue'
@@ -43,6 +46,9 @@ const routes = [
      },
      {path:'/heroes/edit/:id',component:HeroEdit,props:true//props:true表示把参数都注入到CategoryEdit组件中
      },
+     {
+        path:'heroes/list2' ,component:HeroList2
+     },
 
      {path:'/articles/create',component:ArticleEdit
     },
@@ -50,6 +56,13 @@ const routes = [
     },
     {path:'/articles/edit/:id',component:ArticleEdit,props:true//props:true表示把参数都注入到CategoryEdit组件中
     },
+
+    {path:'/myarticles/create',component:MyArticleEdit
+  },
+  {path:'/myarticles/list',component:MyArticleList
+  },
+  {path:'/myarticles/edit/:id',component:MyArticleEdit,props:true//props:true表示把参数都注入到CategoryEdit组件中
+  },
 
 
     {path:'/ads/create',component:AdsEdit

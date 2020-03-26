@@ -22,7 +22,13 @@
     </div>
     </div>
      <router-view/>
+     <div class="mt-2 text-center">
+       <p>互联网ICP备案:
+      <a style="text-decoration: none" href='http://www.beian.miit.gov.cn/' >闽ICP备20003983号</a>
+      </p>
     </div>
+    </div>
+    
   </template>
   
 <script>

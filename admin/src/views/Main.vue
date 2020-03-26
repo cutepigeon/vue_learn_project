@@ -14,12 +14,19 @@
           <template slot="title">英雄</template>
           <el-menu-item index="/heroes/create">新建英雄</el-menu-item><!--index中是跳转的组件-->
           <el-menu-item index="/heroes/list">英雄列表</el-menu-item>
+          <el-menu-item index="/heroes/list2">英雄列表分页</el-menu-item>
         </el-menu-item-group>
         <el-menu-item-group>
           <template slot="title">文章</template>
           <el-menu-item index="/articles/create">新建文章</el-menu-item><!--index中是跳转的组件-->
           <el-menu-item index="/articles/list">文章列表</el-menu-item>
         </el-menu-item-group>
+        <el-menu-item-group>
+            <template slot="title">我的文章</template>
+            <el-menu-item index="/myarticles/create">新建我的文章</el-menu-item><!--index中是跳转的组件-->
+            <el-menu-item index="/myarticles/list">我的文章列表</el-menu-item>
+          </el-menu-item-group>
+
       </el-submenu>
       <el-submenu index="2">
           <template slot="title"><i class="el-icon-message"></i>运营管理</template>
@@ -48,19 +55,10 @@
   
   <el-container>
     <el-header style="text-align: right; font-size: 12px">
-      <el-dropdown>
-        <i class="el-icon-setting" style="margin-right: 15px"></i>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>查看</el-dropdown-item>
-          <el-dropdown-item>新增</el-dropdown-item>
-          <el-dropdown-item>删除</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
-      <span>王小虎</span>
+      
     </el-header>
     
     <el-main>
-       
         <router-view :key="$route.path"></router-view>
       <!--<el-table :data="tableData">
         <el-table-column prop="date" label="日期" width="140">
