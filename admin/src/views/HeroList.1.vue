@@ -1,0 +1,80 @@
+<template>
+    <div class="about">
+      <el-table :data="items.slice((currentPage-1)*pagesize,currentPage*pagesize)">
+        <el-table-column prop="._id" label="ID" width="200"></el-table-column>
+        <el-table-column prop="name" label="英雄名称" ></el-table-column>
+        <el-table-column prop="avatar" label="头像" >
+          <template slot-scope="scope">
+            <span>
+              <img :src="scope.row.avatar" alt="" height="30px">
+            </span>
+          </template>
+        </el-table-column>
+        <el-table-column fixed="right" label="操作" width="100">
+        <template slot-scope="scope">
+          <el-button type="text" @click="$router.push(`/heroes/edit/${scope.row._id}`)" size="small">编辑</el-button>
+          <el-button type="text" @click="myDelete(scope.row)"  size="small">删除</el-button>
+          <!--scope.row为行,记得这么写router.push内用反引号-->
+        </template>
+      </el-table-column>
+      </el-table>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page="currentPage"
+      :page-sizes="[10, 20, 40]" 
+      :page-size="pagesize"
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="items.length">
+    </el-pagination>
+    </div>
+</template>
+<script>
+export default{
+  data() {
+    return {
+      currentPage:1,
+      items:[],
+      pagesize:10
+    }
+  },
+  methods: {
+    async myDelete(row){
+      this.$confirm(`是否永久删除"${row.name}"`, '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then( async () => {
+          await this.$http.delete(`rest/heroes/delete/${row._id}`)
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+          this.fetch()
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })          
+        })
+    },
+    async fetch(){
+      const res=await this.$http.get('rest/heroes')
+      this.items=res.data
+    },
+    //点击条数进行改变
+    handleSizeChange(size){
+      this.pagesize=size
+    },
+    //点击页数进行改变
+    handleCurrentChange(currentPage){
+      this.currentPage=currentPage
+    }
+  },
+  //created在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。
+  created() {
+    this.fetch()
+  },
+}
+
+</script>
