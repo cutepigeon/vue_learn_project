@@ -2,7 +2,7 @@
     
 <el-container style="height: 100vh">
   <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu router :default-openeds="['3']" unique-opened :default-active="$route.path"><!--加上路由跳转,默认打开，只打开一个，高亮-->
+    <el-menu router :default-openeds="['1']" unique-opened :default-active="$route.path"><!--加上路由跳转,默认打开，只打开一个，高亮-->
       <el-submenu index="1">
         <template slot="title"><i class="el-icon-message"></i>内容管理</template>
         <el-menu-item-group>
@@ -25,8 +25,9 @@
             <template slot="title">我的文章</template>
             <el-menu-item index="/myarticles/create">新建我的文章</el-menu-item><!--index中是跳转的组件-->
             <el-menu-item index="/myarticles/list">我的文章列表</el-menu-item>
+            <el-menu-item index="/indexArticles/create">新建首页文章</el-menu-item><!--index中是跳转的组件-->
+            <el-menu-item index="/indexArticles/list">首页文章列表</el-menu-item>
           </el-menu-item-group>
-
       </el-submenu>
       <el-submenu index="2">
           <template slot="title"><i class="el-icon-message"></i>运营管理</template>

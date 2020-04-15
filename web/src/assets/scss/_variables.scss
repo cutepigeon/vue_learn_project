@@ -13,6 +13,8 @@ $colors:(
     "dark-1":#343400,
     "grey":#999,
     "grey-1":#666,
+    "green":rgb(60, 226, 101),
+    "pink":rgb(203, 33, 156),
     "item-type":#bb9a6c,
     "danger":rgb(204, 58, 58)
 );
@@ -26,6 +28,7 @@ $font-sizes:(
     lg:1.0769,//14px
     xl:1.3846////18px
 );
+
 //主轴对齐
 $jc-flex:(
     start:flex-start,

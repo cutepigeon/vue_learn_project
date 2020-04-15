@@ -5,13 +5,14 @@
     <el-form @submit.native.prevent="save" label-width="120px">
       <!--表单 -->
       <el-form-item label="文章类型">
-        <el-select v-model="model.categories" multiple>
+        <el-select v-model="model.categories">
           <el-option v-for="item in categories" :key="item.id" :label="item.name" :value="item._id"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="标题">
         <el-input v-model="model.title"></el-input>
       </el-form-item>
+      
       <el-form-item label="详情">
         <vue-editor useCustomImageHandler @image-added="handleImageAdded" v-model="model.body"></vue-editor>
       </el-form-item>

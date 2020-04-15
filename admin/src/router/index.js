@@ -17,6 +17,9 @@ import AdsEdit from '../views/AdsEdit.vue'
 import AdsList from '../views/AdsList.vue'
 import AdminUserEdit from '../views/AdminUserEdit.vue'
 import AdminUserList from '../views/AdminUserList.vue'
+import IndexArticleEdit from '../views/IndexArticleEdit.vue'
+import IndexArticleList from '../views/IndexArticleList.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -78,6 +81,10 @@ const routes = [
 },
 {path:'/admin_users/edit/:id',component:AdminUserEdit,props:true//props:true表示把参数都注入到CategoryEdit组件中
 },
+{path:'/indexArticles/create',component:IndexArticleEdit},
+{path:'/indexArticles/list',component:IndexArticleList},
+{path:'/indexArticles/edit/:id',component:IndexArticleEdit,props:true}
+
     ]
   },
 ]

@@ -56,7 +56,7 @@ const use = app => {
     app.post('/admin/api/upload', authMiddleware(), upload.single('file'), async (req, res) => {//upload.single接收前端参数
         const file = req.file//运用中间件，将file添加到req上
         //修改url地址为域名让别人也可以访问
-        file.url = `http://www.snow-sakura.com/uploads/${file.filename}`
+        file.url = `http://localhost:3000/uploads/${file.filename}`
         res.send(file)
     })
     //登录接口
@@ -74,7 +74,7 @@ const use = app => {
         const isValid = require('bcryptjs').compareSync(password, user.password)//compareSync明文密文比较,返回值boolean
         assert(isValid, 422, '密码错误')
         //返回token
-        const token = jwt.sign({ id: user._id }, app.get('secret'))//参数是加密的字段
+        const token = jwt.sign({ id: user._id }, app.get('secret2'))//参数是加密的字段
         res.send({ token })
     })
     //错误处理函数

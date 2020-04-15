@@ -2,7 +2,8 @@ const mongoose=require('mongoose')
 
 const Schema=new mongoose.Schema({
     name:{type:String},
-    parent:{type:mongoose.SchemaTypes.ObjectId,ref:'Category'}//ref指定关系哪个模型
+    parent:{type:mongoose.SchemaTypes.ObjectId,ref:'Category'},//ref指定关系哪个模型
+    description:{type:String}
 })
 Schema.virtual('children',{
     localField:'_id',
