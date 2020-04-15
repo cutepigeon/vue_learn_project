@@ -1,0 +1,29 @@
+.animal-forest-index-body{
+    
+  .animal-forest-index-body-item{
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 20%;
+    }
+    position: relative;
+    margin: 2rem;
+    //这里的百分之25是width的25%
+    padding-bottom: 25%;
+    height: 0;
+      width: 25%;
+      border-radius: 20%;
+      font-family:Microsoft YaHei;
+    //   &:nth-child(n+3){
+    //     margin-top: -10rem;
+    //   }
+  }
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 1.875rem;
+    height: auto;
+    width: 80%;
+    border-radius: 10%;
+     box-shadow: 0px 0px 10px rgb(7, 109, 21,0.5);
+    background: #fff;
+}

@@ -1,0 +1,75 @@
+.index-body{
+    padding: 1.875rem 0;
+    .container{
+        .index-list{
+            padding: 0 3%;
+            .index-list-piece{
+                height: auto; 
+                width: 100%;
+                background: rgba(195, 197, 196, 0.65);
+                border-radius: 5px;
+                box-shadow: 0 0 0.1rem black;
+                .list-piece-content{
+                    //主页面使用
+                    .piece-content-index-title{
+                        width: auto;
+                        border-radius: 5px;
+                        background: rgba(102, 223, 223,0.3);
+                    }
+                    //文章分类页面使用
+                    .piece-content-myArticle-title{
+                        width: auto;
+                        border-radius: 5px;
+                        background: rgba(245, 156, 200, 0.3);
+                    }
+                }
+                //主页面存放图片
+                .list-piece-image {
+                    img{
+                        height:70%; 
+                        width:100%;
+                        background-size:cover;
+                        border-radius: 5px
+                    }
+                    span{
+                        position: absolute;
+                        top: 0.625rem;
+                        left: 0.625rem;
+                        font-family: STXingkai;
+                        line-height: 1.875rem;
+                        color: rgba(244, 247, 245, 0.65)
+                    }
+                    margin: 5% 10%;
+                    background-color: rgba(230, 238, 232, 0.7);
+                    box-shadow: 0px 0px 0.4rem black;
+                    border-radius: 0.6rem
+                }
+                //我的文章界面存放文本
+                .list-piece-myArticle-content {
+                    span{
+                        font-family: STXingkai;
+                        line-height: 1.875rem;
+                        color: rgba(39, 39, 39, 0.65)
+                    }
+                    .catalog-ellipsis{
+                        overflow: hidden;
+                        display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+                    }
+                    margin: 5% 10%;
+                    background-color: rgba(230, 238, 232, 0.7);
+                    box-shadow: 0px 0px 0.4rem black;
+                    border-radius: 0.6rem
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
