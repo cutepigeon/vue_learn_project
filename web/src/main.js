@@ -51,7 +51,19 @@ Vue.mixin({
        return {
          Authorization:`Bearer ${localStorage.token|| ''}`
      }
-    }
+    },
+    async fetchAvatar(){
+      const res=await this.$http.get(`person/message/${localStorage.id}`)
+      this.avatar=res.data.avatar
+     },
+     async fetchNickname(){
+      const res=await this.$http.get(`person/message/${localStorage.id}`)
+      this.nickname=res.data.nickname
+      console.log(this.nickname)
+     },
+     async upPersonMessage(){
+      await this.$http.post(`person/create/${localStorage.id}`, this.model)
+     }
   }
 })
 Vue.prototype.$http=http

@@ -1,22 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Main from '../views/Main.vue'
-import Home from '../views/LOL/LOLHome.vue'
-import HomePage from '../views/LOL/HomePage.vue'
-import Article from '../views/LOL/Article.vue'
-import Hero from '../views/LOL/Hero.vue'
-import MyArticleIndex from '../views/myArticle/MyArticleIndex.vue'
-import Categories from '../views/myArticle/Categories.vue'
-import ArticleCatalog from '../views/myArticle/ArticleCatalog.vue'
-import MyArticleMain from '../views/myArticle/MyArticleMain.vue'
-import AnimalIndex from '../views/animalForest/Index.vue'
-import IndexPage from '../views/animalForest/IndexPage.vue'
-import VipLogin from '../views/vip/VipLogin.vue'
-import LoginPage from '../views/vip/LoginPage.vue'
-import Register from '../views/vip/Register.vue'
-import Message from '../views/Person/Message.vue'
-import AccountManage from '../views/Person/AccountManage.vue'
-import ManagePage from '../views/Person/ManagePage.vue'
+//lol
+import { Home, HomePage, Article, Hero } from '../views/LOL'
+//我的文章
+import { MyArticleIndex, Categories, ArticleCatalog, MyArticleMain } from '../views/myArticle'
+//动物之森
+import { AnimalIndex, IndexPage } from '../views/animalForest'
+//vip
+import { VipLogin, LoginPage, Register } from '../views/vip'
+//个人信息
+import { Message, AccountManage, ManagePage } from '../views/Person'
+import {Nickname} from '../views/Person/AccountMessage'
 Vue.use(VueRouter)
 
 const routes = [
@@ -30,11 +25,16 @@ const routes = [
     component: Main,
   },
   //个人信息页面
-  {path:'/person/message',component:Message},
-  {path:'/account/management',component:AccountManage,
-children:[{
-  path:'/'  ,component:ManagePage
-}]},
+  { path: '/person/message', component: Message },
+  {
+    path: '/account/management', component: AccountManage,
+    children: [{
+      path: '/', component: ManagePage,
+    }]
+  },
+  {
+    path:'/Nickname',component:Nickname
+  },
   //英雄联盟
   {
     path: '/lol/index', component: Home,
@@ -60,7 +60,7 @@ children:[{
       { path: '/', component: IndexPage }
     ]
   },
-  
+
 
 ]
 const router = new VueRouter({

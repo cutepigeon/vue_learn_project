@@ -234,11 +234,10 @@ const web = app => {
         }
      })
      router.get('/person/message/:id',async(req,res)=>{
-         const modelT={
-             user:req.params.id
-         }
-        const model = await UserMessage.create(modelT)
-        res.send('x')
+        const model = await UserMessage.findOne({
+            user:req.params.id
+        })
+        res.send(model)
         
      })
      //用户信息创建

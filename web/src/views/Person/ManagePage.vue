@@ -5,9 +5,9 @@
                 <div class="p-2 text-grey border-bottom">
                     账号信息
                 </div>
-                <router-link tag="div" to='' class="account-management-main-item p-3 d-flex border-bottom">
+                <router-link tag="div" to='/Nickname' class="account-management-main-item p-3 d-flex border-bottom">
                    <span>昵称</span>
-                   <div  v-if="model.autograph" class="flex-1 ml-2"></div>
+                   <div  v-if="nickname!=''" class="flex-1 ml-2">{{nickname}}</div>
                    <div v-else class="flex-1 ml-2 text-grey">修改昵称</div>
                    <span class="fs-xl">&gt;</span>
                 </router-link>
@@ -20,8 +20,8 @@
                      <div  class="account-management-main-item p-3 d-flex border-bottom">
                             <span>注册时间</span>
                                                <div  v-if="model.autograph" class="flex-1 ml-2"></div>
-                            <div v-else class="flex-1 ml-2 text-grey">xx</div>
-                            <span class="fs-xl">&gt;</span>
+                        <div v-else class="flex-1 ml-2 text-grey">xx</div>
+                        <span class="fs-xl">&gt;</span>
                      </div>
             </div>
             <div class="account-management-main mt-3">
@@ -36,7 +36,8 @@
             export default {
               data() {
                 return {
-                  model:{}
+                  model:{},
+                  nickname:''
                 };
               },
               methods: {
@@ -61,6 +62,9 @@
         //           return isJPG && isLt2M;
         //         }
         //       }
-            }
+            },
+            created() {
+                this.fetchNickname()
+            },
         }
     </script>

@@ -49,15 +49,14 @@
                 //  let res
                 if(this.control===true){
              const res= await this.$http.post('vip/login', this.model)
-             console.log(res.data)
-                localStorage.id=res.data.id
-                localStorage.token=res.data.token
-                await this.$http.post(`person/create/${localStorage.id}`)
-                this.$router.push('/')
+             this.$router.push('/')
                 this.$message({
                     type: "success",
                     message: '登录成功'
                 })
+                localStorage.id=res.data.id
+                localStorage.token=res.data.token
+                await this.$http.post(`person/create/${localStorage.id}`)
             }
             },
             async fetchCaptcha(){

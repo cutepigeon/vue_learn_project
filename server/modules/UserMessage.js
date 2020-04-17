@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 const Schema=new mongoose.Schema({
     user:{type:mongoose.SchemaTypes.ObjectId,ref:'User'},
-    username:{type:String},
+    nickname:{type:String},
     autograph:{type:String},
     avatar:{type:String}
 })

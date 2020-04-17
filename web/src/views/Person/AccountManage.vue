@@ -1,8 +1,13 @@
+
 <template>
     <div>
         <router-view/>
     </div>
 </template>
+<script>
+   
+
+</script>
 <!-- <template>
     <div >
         <div class="bg-white account-management-topbar d-flex">

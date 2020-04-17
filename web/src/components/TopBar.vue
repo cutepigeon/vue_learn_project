@@ -3,7 +3,10 @@
         <div class="container py-2 px-3 d-flex ai-center" :style="topbarStyle">
             <slot></slot>
             <el-dropdown @command="handleCommand" >
-                 <div class="iconfont icon-logout-user mr-2" style="font-size:2.3rem;"></div>
+                 <div class="pt-2" >
+                     <img  v-if="avatar" class="topbar-img mr-2" :src="avatar" alt="">
+                     <i v-else class="iconfont icon-logout-user mr-2" style="font-size:2.3rem;"></i>
+                 </div>
                 <el-dropdown-menu  slot="dropdown" style="  box-shadow: 0px 0px 10px black;
                 background: rgba(0, 0, 0, 0.8);
                 border-color: rgb(8, 8, 8);">
@@ -47,10 +50,11 @@
         props:{
             insideMenuStyle:{type:String},
             navStyle:{type:String},
-            topbarStyle:{type:String}
+            topbarStyle:{type:String},
         },
         data() {
             return {
+                avatar:'',
                 controlNumber: 1,
                 show: false
             }
@@ -69,6 +73,7 @@
                     newMenu.style = "height:120px;top:topbar.offsetHeight;"
                 }
             },
+            //下拉菜单
             handleCommand(command) {
               
               if(command==='personalMessage'){
@@ -81,7 +86,10 @@
                         type: 'success'
                });
             }
-          }
+          },
+        },
+        created() {
+           this.fetchAvatar()
         },
         mounted() {
         },
@@ -117,5 +125,10 @@
         box-shadow: 0px 0px 10px black;
         background: rgba(0, 0, 0, 0.7);
         border-color: rgb(8, 8, 8);
+    }
+    .topbar .topbar-img{
+        border-radius: 50%;
+        height: 2.3rem;
+        width: 2.3rem;
     }
 </style>

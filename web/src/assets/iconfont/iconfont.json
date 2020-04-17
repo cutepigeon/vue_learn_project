@@ -41,6 +41,13 @@
       "unicode_decimal": 58945
     },
     {
+      "icon_id": "4078363",
+      "name": "叉",
+      "font_class": "cha",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
       "icon_id": "4226054",
       "name": "验证失败",
       "font_class": "yanzhengshibai",
